@@ -1,1 +1,1 @@
-# Data-Structures-CSC212
+  This is a collection of projects that I've completed since starting school. This isn't a complete list as I've lost a substantial amount of projects due to my laptop hard drive failing on me but it has some things from my data structures class and some personal projects. 
