@@ -5,7 +5,7 @@
 dtxt db "SunMonTueWedThuFriSat2021Previous Next Quit"
 scr dw 80*25 dup(?)
 
-; Length: 48
+; Length: 50
 jan_name db "              J  A  N  U  A  R  Y               "
 feb_name db "              F  E  B  U  A  R  Y               "
 mar_name db "                 M  A  R  C  H                  "
@@ -19,7 +19,7 @@ oct_name db "              O  C  T  O  B  E  R               "
 nov_name db "            N  O  V  E  M  B  E  R              "
 dec_name db "            D  E  C  E  M  B  E  R              "
 
-;Length: 84
+;Length: 90
 jan db "      1 2 3 4 5 6 7 8 9 10111213141516171819202122232425262728293031                "
 feb db "            1 2 3 4 5 6 7 8 9 10111213141516171819202122232425262727                "
 mar db "            1 2 3 4 5 6 7 8 9 10111213141516171819202122232425262728293031          "
@@ -91,7 +91,6 @@ restoreCursor:
 getDate:
 	mov ah,2Ah
 	int 21h
-	mov year,cx
 	dec dh
 	mov month,dh
 	ret
@@ -353,7 +352,6 @@ cl2:cmp dh,3
 	jmp don
 	
 cl3:cmp dh,4
-	jne cl4
 	mov si,offset apr_name
 	call MONTH
 	mov si, offset apr
@@ -465,8 +463,8 @@ START:
 	int 	10h
 	mov 	ax,0B800h	
 	mov		es,ax		
-	call	SAVSCR		
-	call	CLRSCR		
+	call	saveClrScreen	
+	call	clrScreen		
 	call 	DRWHD		
 	call	DRWBD		
 	call	DRWTXT		
@@ -474,6 +472,6 @@ START:
 	int 	21h			
 	call 	CALEND		
 	call 	CONTROL		
-	call	RECSCR		
+	call	rtnScreen		
 .exit
 end START
