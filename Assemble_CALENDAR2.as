@@ -92,7 +92,6 @@ getDate:
 	mov ah,2Ah
 	int 21h
 	dec dh
-	mov month,dh
 	ret
 
 DRWHD proc near
@@ -157,11 +156,10 @@ dh5:mov es:[si],ax
 DRWHD endp
 
 DRWBD proc near
-	pusha
-	 Draws the body of the calendar
-	
+	pusha 
+	 
 	mov cx,20
-	mov si,502		; start
+	mov si,502		
 	mov ax,02b3h
 db1:mov dx,8
 db2:mov es:[si],ax
@@ -170,8 +168,6 @@ db2:mov es:[si],ax
 	jnz db2
 	add si,32
 	loop db1
-	
-	 Top horizontal
 	mov cx,57
 	mov si,342
 	mov ax,02c4h
