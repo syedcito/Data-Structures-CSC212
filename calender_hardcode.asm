@@ -110,7 +110,7 @@ EndStr db "$" ; tell DOS to stop printing here
 mov ax,@data ; initialize data segment
 mov ds,ax
 
-mov dx,offset Cal ; print Calender
+mov dx,offset Cal1 ; print Calender
 mov ah,9
 int 21h
 
