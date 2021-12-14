@@ -3,6 +3,7 @@
 
 .data
 dtxt db "SunMonTueWedThuFriSat2021Previous Next Quit"
+scr dw 80*25 dup(?)
 
 ; Length: 48
 jan_name db "              J  A  N  U  A  R  Y               "
